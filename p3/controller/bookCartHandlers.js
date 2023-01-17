@@ -3,7 +3,6 @@ const Books = require("../models/book");
 const handlers = {
   getBooks: async (req, res, next) => {
     let data = [];
-
     try {
       data = await Books.find();
       res.status(200).json(data);
@@ -36,7 +35,7 @@ const handlers = {
       .catch((err) => {
         if (err.errors)
           res.json({
-            error: err.errors.name.message,
+            // error: err.errors.name.message,
           });
         else
           res.json({
