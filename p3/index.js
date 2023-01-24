@@ -16,7 +16,7 @@ server.get("/", (req, res, next) => {
 server.get("/book", handlers.getBooks);
 server.get("/book/:isbn", handlers.getBook);
 server.post("/book", handlers.createBook);
-server.put("/book", handlers.updateBook);
+server.put("/book/:isbn", handlers.updateBook);
 server.delete("/book/:isbn", handlers.deleteBook);
 
 mongoose

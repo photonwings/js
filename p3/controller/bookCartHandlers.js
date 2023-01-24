@@ -68,6 +68,7 @@ const handlers = {
   },
   updateBook: async (req, res, next) => {
     try {
+      console.log(req.body);
       await Books.findOne({ isbn: req.body.isbn }).then((book) => {
         if (book !== null)
           Books.updateOne({ isbn: req.body.isbn }, req.body).then((data) => {

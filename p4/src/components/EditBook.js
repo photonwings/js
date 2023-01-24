@@ -11,12 +11,10 @@ class EditBook extends React.Component {
       price: "",
       isInStock: "",
       edition: "",
-      printDate: "",
     };
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-
     if (!id) {
       return;
     }
@@ -26,6 +24,7 @@ class EditBook extends React.Component {
       .then((res) => {
         const book = res.data.book[0];
         this.setState(() => ({
+          isbn: id,
           name: book.name,
           price: book.price,
           isInStock: book.isInStock ? "yes" : "no",
@@ -49,6 +48,7 @@ class EditBook extends React.Component {
     const id = this.props.match.params.id;
 
     const book = {
+      isbn: id,
       name: this.state.name,
       price: this.state.price,
       isInStock: this.state.isInStock === "yes" ? true : false,

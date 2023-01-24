@@ -12,7 +12,6 @@ class AddBook extends React.Component {
       price: "",
       isInStock: "yes",
       edition: "",
-      printDate: "",
     };
   }
 
@@ -26,7 +25,7 @@ class AddBook extends React.Component {
 
   saveBook = () => {
     const book = {
-      ISBN: this.state.isbn,
+      isbn: this.state.isbn,
       name: this.state.name,
       price: this.state.price,
       isInStock: this.state.isInStock === "yes" ? true : false,
@@ -37,6 +36,7 @@ class AddBook extends React.Component {
     axios
       .post(`http://localhost:4000/book`, book)
       .then((res) => {
+        console.log(res);
         this.props.history.push("/");
       })
       .catch((err) => {
