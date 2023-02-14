@@ -7,7 +7,7 @@ const Inventory = require('./model/Inventory');
 
 const app = express();
 
-const PORT = 8080;
+const PORT = 5000;
 // Add your Mongodb url in below variable...
 const MongoDBUrl = 'mongodb://localhost:27017/xyz';
 
@@ -29,7 +29,7 @@ app.get('/', async (req, res, next) => {
 
 mongoose.connect(MongoDBUrl, () => {
   app.listen(PORT, () => {
-    console.log('Server started on port number 8080');
+    console.log('Server started on port number 5000');
   });
 })
 
